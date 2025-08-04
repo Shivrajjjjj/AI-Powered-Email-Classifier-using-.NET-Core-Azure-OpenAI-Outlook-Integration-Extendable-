@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36203.30 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AI-PoweredEmailClassifier", "AI-PoweredEmailClassifier.csproj", "{8CAF5492-DCA4-CDCA-1E6A-6A03111AA63D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CAF5492-DCA4-CDCA-1E6A-6A03111AA63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CAF5492-DCA4-CDCA-1E6A-6A03111AA63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CAF5492-DCA4-CDCA-1E6A-6A03111AA63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CAF5492-DCA4-CDCA-1E6A-6A03111AA63D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE3BBB6A-F135-4FDE-A3D1-00CB5ACD7C55}
+	EndGlobalSection
+EndGlobal

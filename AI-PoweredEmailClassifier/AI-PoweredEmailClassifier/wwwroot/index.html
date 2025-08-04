@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Email Classifier</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 240px;
+            min-width: 240px;
+            background-color: #2b579a;
+            color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .sidebar h2 {
+                margin: 0 0 20px 0;
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            .sidebar ul {
+                list-style: none;
+                padding: 0;
+                flex-grow: 1;
+            }
+
+                .sidebar ul li {
+                    padding: 12px;
+                    cursor: pointer;
+                    border-radius: 6px;
+                }
+
+                    .sidebar ul li:hover {
+                        background-color: #1e4f8f;
+                    }
+
+                    .sidebar ul li.active {
+                        background-color: #1e4f8f;
+                    }
+
+        .sidebar-footer {
+            margin-top: auto;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .main {
+            flex: 1;
+            padding: 40px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+            .main h1 {
+                margin-top: 0;
+                color: #2b579a;
+            }
+
+        label {
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        input, textarea {
+            padding: 12px;
+            width: 100%;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background-color: #2b579a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #1e4f8f;
+            }
+
+        #result {
+            margin-top: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2b579a;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+            #result.show {
+                opacity: 1;
+            }
+
+        .history-item {
+            background: white;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .section {
+            display: none;
+        }
+
+            .section.active {
+                display: block;
+            }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px;
+            }
+
+                .sidebar ul {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+                }
+
+            .main {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Outlook AI</h2>
+        <ul>
+            <li id="nav-inbox" onclick="showSection('inbox')">Inbox</li>
+            <li id="nav-classify" onclick="showSection('classify')">Classify</li>
+            <li id="nav-settings" onclick="showSection('settings')">Settings</li>
+        </ul>
+        <div class="sidebar-footer">Outlook API ready</div>
+    </div>
+
+    <div class="main">
+        <!-- Inbox -->
+        <div id="inbox" class="section active">
+            <h1>Welcome to AI Email Classifier</h1>
+
+            <p>
+                This intelligent tool helps you automatically classify incoming emails using the power of AI.
+                Whether it's a customer support request, a sales inquiry, or spam — this classifier sorts it in seconds.
+            </p>
+
+            <div style="margin-top: 30px;">
+                <h2 style="color:#2b579a;">✨ What This App Can Do</h2>
+                <ul style="line-height: 1.8; font-size: 15px;">
+                    <li>📨 Automatically categorize emails into <strong>Support</strong>, <strong>Sales</strong>, <strong>Urgent</strong>, <strong>Spam</strong>, and more.</li>
+                    <li>🧠 Uses advanced AI models like <strong>Gemini</strong> or <strong>OpenAI</strong> under the hood.</li>
+                    <li>📋 Keeps track of your <strong>recent classification history</strong>.</li>
+                    <li>📦 Extendable to <strong>Microsoft Outlook</strong> with real-time inbox scanning (via Microsoft Graph API).</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h2 style="color:#2b579a;">🛠 How to Use</h2>
+                <ol style="line-height: 1.8; font-size: 15px;">
+                    <li>Go to the <strong>Classify</strong> tab.</li>
+                    <li>Enter the <em>subject</em> and <em>body</em> of the email.</li>
+                    <li>Click <strong>Classify Email</strong> and view the result instantly.</li>
+                    <li>Your classifications are saved below for quick access.</li>
+                </ol>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <h2 style="color:#2b579a;">📈 Coming Soon</h2>
+                <ul style="line-height: 1.8; font-size: 15px;">
+                    <li>🔄 Real-time integration with Outlook/Exchange inbox</li>
+                    <li>📊 Email classification analytics dashboard</li>
+                    <li>👥 User profiles and history export options</li>
+                    <li>🎨 Light/Dark mode theme switcher</li>
+                </ul>
+            </div>
+
+            <div style="margin-top: 40px; padding: 15px; background: #eaf3ff; border-left: 4px solid #2b579a;">
+                <strong>Tip:</strong> You can classify demo emails and see how your AI performs before integrating it into real-world mailboxes.
+            </div>
+        </div>
+
+
+        <!-- Classify -->
+        <div id="classify" class="section">
+            <h1>Classify Email</h1>
+
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" placeholder="Enter email subject">
+
+            <label for="body">Body</label>
+            <textarea id="body" rows="6" placeholder="Enter email body"></textarea>
+
+            <button onclick="classify()">Classify Email</button>
+
+            <div id="result"></div>
+
+            <h3 style="margin-top: 40px;">Recent Classifications</h3>
+            <div id="history-list"></div>
+        </div>
+
+        <!-- Settings -->
+        <div id="settings" class="section">
+            <h1>Settings</h1>
+            <p>Settings coming soon...</p>
+        </div>
+    </div>
+
+    <script>
+        const historyList = document.getElementById('history-list');
+        const resultDiv = document.getElementById('result');
+
+        async function classify() {
+            const subject = document.getElementById('subject').value.trim();
+            const body = document.getElementById('body').value.trim();
+
+            if (!subject || !body) {
+                alert("Please enter both subject and body.");
+                return;
+            }
+
+            resultDiv.textContent = "Classifying...";
+            resultDiv.classList.remove("show");
+
+            const response = await fetch('/api/EmailClassifier', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ subject, body })
+            });
+
+            const data = await response.json();
+            const category = data.category;
+
+            resultDiv.textContent = `📌 Category: ${category}`;
+            resultDiv.classList.add("show");
+
+            addToHistory(subject, body, category);
+        }
+
+        function addToHistory(subject, body, category) {
+            const item = document.createElement('div');
+            item.className = 'history-item';
+            item.innerHTML = `<strong>Subject:</strong> ${subject}<br/><strong>Body:</strong> ${body}<br/><strong>Category:</strong> ${category}`;
+            historyList.prepend(item);
+        }
+
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.querySelector(`#${id}`).classList.add('active');
+
+            document.querySelectorAll('.sidebar ul li').forEach(li => li.classList.remove('active'));
+            document.querySelector(`#nav-${id}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
