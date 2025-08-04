@@ -131,5 +131,7 @@ AI-PoweredEmailClassifier/
 
 ---
 ![AI Email Classifier UI Screenshot](AI_email(01).jpg)
+![AI Email Classifier UI Screenshot](AI_email(02).jpg)
+![AI Email Classifier UI Screenshot](AI_email(03).jpg)
 
 ![AI Email Classifier UI Screenshot](AI_email(01)swagger.jpg)
