@@ -130,4 +130,4 @@ AI-PoweredEmailClassifier/
 * 🎨 Light/Dark Theme toggle
 
 ---
-
+![AI Email Classifier UI Screenshot](AI_email(01).jpg)
