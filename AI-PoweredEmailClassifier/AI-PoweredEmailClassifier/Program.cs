@@ -22,7 +22,7 @@ builder.Services.AddSwaggerGen(options =>
         Contact = new OpenApiContact
         {
             Name = "Shivraj Randive",
-            Email = "shivraj@example.com", // use your real or professional email
+            Email = "shivrajrandive9281@gmail.com", // use your real or professional email
             Url = new Uri("https://shivrajjjjj.github.io/portfolio-website/") // optional
         }
 
@@ -57,4 +57,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
 
