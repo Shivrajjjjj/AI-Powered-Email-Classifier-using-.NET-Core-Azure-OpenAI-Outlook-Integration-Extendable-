@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen(options =>
         {
             Name = "Shivraj Randive",
             Email = "shivraj@example.com", // use your real or professional email
-            Url = new Uri("https://your-portfolio.com") // optional
+            Url = new Uri("https://shivrajjjjj.github.io/portfolio-website/") // optional
         }
 
     });
@@ -57,3 +57,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
